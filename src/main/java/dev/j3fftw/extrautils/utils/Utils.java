@@ -44,11 +44,19 @@ public final class Utils {
         });
     }
 
+    public static double ticksToSeconds(double ticks) {
+        if (Constants.CUSTOM_TICKER_DELAY <= 0) {
+            return (Constants.SERVER_TICK_RATE * ticks);
+        } else {
+            return ((double) Constants.CUSTOM_TICKER_DELAY / Constants.SERVER_TICK_RATE * ticks);
+        }
+    }
+
     public static double perTickToPerSecond(double power) {
         if (Constants.CUSTOM_TICKER_DELAY <= 0) {
             return (Constants.SERVER_TICK_RATE * power);
         } else {
-            return (1 / ((double) Constants.CUSTOM_TICKER_DELAY / Constants.SERVER_TICK_RATE) * power);
+            return (1 / ticksToSeconds(power));
         }
     }
 }
