@@ -56,7 +56,7 @@ public final class Utils {
         if (Constants.CUSTOM_TICKER_DELAY <= 0) {
             return (Constants.SERVER_TICK_RATE * power);
         } else {
-            return (1 / ticksToSeconds(power));
+            return (1 / ((double) Constants.CUSTOM_TICKER_DELAY / Constants.SERVER_TICK_RATE) * power);
         }
     }
 }
