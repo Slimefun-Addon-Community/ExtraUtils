@@ -64,7 +64,7 @@ public interface InventoryBlock {
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
                 return player.hasPermission("slimefun.inventory.bypass")
                     || (SlimefunPlugin.getProtectionManager().hasPermission(player, block.getLocation(),
-                    ProtectableAction.ACCESS_INVENTORIES) && Slimefun.hasUnlocked(player, item, false)
+                    ProtectableAction.INTERACT_BLOCK) && Slimefun.hasUnlocked(player, item, false)
                 );
             }
         };
