@@ -1,5 +1,6 @@
 package dev.j3fftw.extrautils.interfaces;
 
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import java.lang.reflect.Array;
 import java.util.function.Consumer;
 
@@ -64,7 +65,7 @@ public interface InventoryBlock {
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
                 return player.hasPermission("slimefun.inventory.bypass")
                     || (SlimefunPlugin.getProtectionManager().hasPermission(player, block.getLocation(),
-                    ProtectableAction.INTERACT_BLOCK) && Slimefun.hasUnlocked(player, item, false)
+                    ProtectableAction.INTERACT_BLOCK) && SlimefunUtils.canPlayerUseItem(player, item.getItem(), false)
                 );
             }
         };
