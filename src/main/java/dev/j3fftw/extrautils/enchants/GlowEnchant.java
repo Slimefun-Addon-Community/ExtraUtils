@@ -1,6 +1,6 @@
 package dev.j3fftw.extrautils.enchants;
 
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;
@@ -64,7 +64,7 @@ public class GlowEnchant extends Enchantment {
     public boolean canEnchantItem(ItemStack item) {
         if (item.hasItemMeta()) {
             final ItemMeta itemMeta = item.getItemMeta();
-            final Optional<String> id = SlimefunPlugin.getItemDataService().getItemData(itemMeta);
+            final Optional<String> id = Slimefun.getItemDataService().getItemData(itemMeta);
 
             if (id.isPresent()) {
                 return ids.contains(id.get());
